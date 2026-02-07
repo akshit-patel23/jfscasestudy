@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="header-section">
+    <h2>My Assigned Orders</h2>
+  </div>
+
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading your assigned orders...</p>
+  </div>
+
+  <div *ngIf="!loading && orders.length === 0" class="empty-state">
+    <div class="empty-icon">📋</div>
+    <h3>No Orders Assigned</h3>
+    <p>You don't have any assigned orders at the moment.</p>
+  </div>
+
+  <div *ngIf="!loading && orders.length > 0" class="table-container">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Car Number</th>
+          <th>Package</th>
+          <th>Add-Ons</th>
+          <th>Date & Time</th>
+          <th>Location</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td class="order-id">#{{ order.orderId }}</td>
+          <td class="customer-email">{{ order.userMail }}</td>
+          <td class="car-number">{{ order.carNumber }}</td>
+          <td>{{ order.packageName }}</td>
+          <td class="add-ons">{{ order.addOns.length > 0 ? order.addOns.join(', ') : 'None' }}</td>
+          <td class="date-time">{{ order.date }}<br><small>{{ order.time }}</small></td>
+          <td class="location">{{ order.location }}</td>
+          <td class="amount">₹{{ order.amount }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="'status-' + order.status">
+              {{ order.status?.toUpperCase() }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-complete" (click)="openCompleteForm(order)">
+              <span class="btn-icon">✓</span>
+              Complete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Complete Order Modal -->
+<div *ngIf="showCompleteForm" class="modal-overlay" (click)="closeCompleteForm()">
+  <div class="modal-dialog">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Complete Order</h3>
+        <button type="button" class="btn-close" (click)="closeCompleteForm()">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="order-summary">
+          <h4>Order Summary</h4>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <span class="summary-label">Order ID:</span>
+              <span class="summary-value">#{{ selectedOrder?.orderId }}</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Package:</span>
+              <span class="summary-value">{{ selectedOrder?.packageName }}</span>
+            </div>
+            <div class="summary-item" *ngIf="selectedOrder?.addOns.length > 0">
+              <span class="summary-label">Add-Ons:</span>
+              <span class="summary-value">{{ selectedOrder?.addOns.join(', ') }}</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Total Amount:</span>
+              <span class="summary-value amount">₹{{ selectedOrder?.amount }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-upload-section">
+          <label for="imageUrl" class="form-label">
+            <span class="label-icon">📸</span>
+            After-Wash Image URL
+          </label>
+          <input
+            type="url"
+            id="imageUrl"
+            [(ngModel)]="afterWashImageUrl"
+            class="form-input"
+            placeholder="https://example.com/image.jpg"
+          />
+
+          <div *ngIf="afterWashImageUrl" class="image-preview">
+            <p class="preview-label">Preview:</p>
+            <img [src]="afterWashImageUrl" alt="After Wash Preview" class="preview-image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="closeCompleteForm()">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn-primary"
+          (click)="submitCompletion()"
+          [disabled]="!afterWashImageUrl">
+          <span class="btn-icon">✓</span>
+          Submit Completion
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

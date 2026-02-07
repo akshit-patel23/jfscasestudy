@@ -1,0 +1,38 @@
+.regcontainer {
+  width: 100vw  !important;
+  height: 100vh !important;
+  background-image: url('../../../assets/regbg.jpg');
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.card{
+  box-shadow: 10px 12px 19px 0px rgba(0, 0, 0, 0.468);
+}
+
+.rolebtn {
+  background-color: #f8f9fa; /* default light background */
+  color: #333;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+.rolebtn:hover {
+  background-color: #e2e6ea; /* slightly darker on hover */
+  border-color: #999;
+}
+.btn-check:checked + .rolebtn {
+  background-color: #8e75ee; /* Bootstrap primary */
+  color: white;
+
+}
+
+.signupbtn{
+  background-color: #8e75ee;
+  border: none;
+
+}
+.loginlink{
+  color: #8e75ee;
+  text-decoration: none;
+
+}

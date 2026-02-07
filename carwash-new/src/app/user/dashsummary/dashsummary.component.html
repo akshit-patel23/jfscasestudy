@@ -1,0 +1,200 @@
+<div class="dashboard-container">
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h1 class="welcome-title">Welcome Back!</h1>
+        <p class="welcome-subtitle">Ready for your next car wash? Book now and get your car sparkling clean!</p>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary btn-lg" routerLink="/dashboard/booking">
+          <i class="fas fa-plus me-2"></i>Book New Service
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row mb-4">
+    <div class="col-md-3 col-sm-6 mb-3">
+      <div class="stat-card">
+        <div class="stat-icon bg-primary">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">3</h3>
+          <p class="stat-label">My Cars</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+      <div class="stat-card">
+        <div class="stat-icon bg-success">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">8</h3>
+          <p class="stat-label">Services Completed</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+      <div class="stat-card">
+        <div class="stat-icon bg-warning">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">1</h3>
+          <p class="stat-label">Upcoming Service</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+      <div class="stat-card">
+        <div class="stat-icon bg-info">
+          <i class="fas fa-rupee-sign"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">₹1,240</h3>
+          <p class="stat-label">Total Spent</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions & Recent Activity -->
+  <div class="row">
+    <!-- Quick Actions -->
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Quick Actions</h5>
+        </div>
+        <div class="card-body">
+          <div class="quick-action-grid">
+            <a routerLink="/dashboard/booking" class="quick-action-item">
+              <div class="action-icon bg-primary">
+                <i class="fas fa-spray-can"></i>
+              </div>
+              <span>Book Wash</span>
+            </a>
+            <a routerLink="/dashboard/car" class="quick-action-item">
+              <div class="action-icon bg-success">
+                <i class="fas fa-car"></i>
+              </div>
+              <span>My Cars</span>
+            </a>
+            <a routerLink="/dashboard/user-orders" class="quick-action-item">
+              <div class="action-icon bg-info">
+                <i class="fas fa-history"></i>
+              </div>
+              <span>Order History</span>
+            </a>
+            <a routerLink="/dashboard/payment-history" class="quick-action-item">
+              <div class="action-icon bg-secondary">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <span>Payments</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="col-lg-8 mb-4">
+      <div class="card h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">My Recent Services</h5>
+          <a routerLink="/dashboard/user-orders" class="btn btn-sm btn-outline-primary">View All</a>
+        </div>
+        <div class="card-body">
+          <div class="recent-orders">
+            <div class="order-item">
+              <div class="order-info">
+                <div class="order-id">#CW-2024-001</div>
+                <div class="order-details">Premium Wash - Honda City (DL 01 AB 1234)</div>
+                <div class="order-date">Tomorrow, 10:00 AM</div>
+              </div>
+              <div class="order-status">
+                <span class="badge bg-warning">Scheduled</span>
+                <div class="order-amount">₹599</div>
+              </div>
+            </div>
+            <div class="order-item">
+              <div class="order-info">
+                <div class="order-id">#CW-2024-002</div>
+                <div class="order-details">Basic Wash - Maruti Swift (DL 02 CD 5678)</div>
+                <div class="order-date">Yesterday, 2:30 PM</div>
+              </div>
+              <div class="order-status">
+                <span class="badge bg-success">Completed</span>
+                <div class="order-amount">₹299</div>
+              </div>
+            </div>
+            <div class="order-item">
+              <div class="order-info">
+                <div class="order-id">#CW-2024-003</div>
+                <div class="order-details">Deluxe Wash - Toyota Innova (DL 03 EF 9012)</div>
+                <div class="order-date">3 days ago</div>
+              </div>
+              <div class="order-status">
+                <span class="badge bg-success">Completed</span>
+                <div class="order-amount">₹799</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title mb-0">My Cars & Next Service Due</h5>
+        </div>
+        <div class="card-body">
+          <div class="services-grid">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <h6>Honda City</h6>
+              <p>DL 01 AB 1234</p>
+              <div class="service-price">Due in 5 days</div>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <h6>Maruti Swift</h6>
+              <p>DL 02 CD 5678</p>
+              <div class="service-price">Recently washed</div>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-truck"></i>
+              </div>
+              <h6>Toyota Innova</h6>
+              <p>DL 03 EF 9012</p>
+              <div class="service-price">Due in 12 days</div>
+            </div>
+            <div class="service-item add-car">
+              <div class="service-icon">
+                <i class="fas fa-plus"></i>
+              </div>
+              <h6>Add New Car</h6>
+              <p>Register another vehicle</p>
+              <div class="service-price">
+                <a routerLink="/dashboard/car" class="btn btn-sm btn-outline-primary">Add Car</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

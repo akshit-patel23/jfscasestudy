@@ -1,0 +1,39 @@
+<div class="d-flex  login-container">
+  <div class="fillimg">
+
+  </div>
+  <div class="login-form justify-content-center align-items-center">
+    <h2 class="text-center mb-2">Login</h2>
+    <p class="text-center mb-5">Welcome back! Please enter your details</p>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+          Valid email required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Password</label>
+        <div class="input-group">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" />
+          <span class="input-group-text" (click)="togglePassword()" style="cursor: pointer;">
+            <mat-icon>{{ showPassword ? 'visibility_off' : 'remove_red_eye' }}</mat-icon>
+          </span>
+        </div>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+          Password is required.
+        </div>
+      </div>
+        <a  class="float-start mb-3 forgotlink" routerLink="/forgot-password" routerLinkActive="active">Forgot Password?</a>
+      <div class="mb-3">
+      <button type="submit" class="btn btn-primary w-100 submitbtn" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </form>
+    <p class="text-center mb-3">Don't have an account?
+      <a  class="signuplink" routerLink="/register" routerLinkActive="active" >Signup</a>
+   </p>
+
+  </div>
+</div>

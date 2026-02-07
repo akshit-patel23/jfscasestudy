@@ -1,0 +1,15 @@
+.custom-navbar{
+  padding: 1%;
+
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  width:100vw;
+}
+.custom-navbar:hover{
+  /* background-color: rgba(255, 255, 255, 0.267); */
+  transition: 0.5s;
+  backdrop-filter: blur(10px);
+}
+.nav-item{
+  margin: 2% !important;
+
+}

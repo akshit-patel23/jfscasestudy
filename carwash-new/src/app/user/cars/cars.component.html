@@ -1,0 +1,144 @@
+<div *ngIf="addingCar" class="add-car-form mt-3 container shadow-lg p-4 mb-3">
+  <div class="car-header">
+    <h2>Add Car</h2>
+  </div>
+  <form (ngSubmit)="submitAdd()" #addForm="ngForm">
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand</label>
+      <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="newCar.brand" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="model" class="form-label">Model</label>
+      <input type="text" class="form-control" id="model" name="model" [(ngModel)]="newCar.model" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="carNumber" class="form-label">Car Number</label>
+      <input type="text" class="form-control" id="carNumber" name="carNumber" [(ngModel)]="newCar.carNumber" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="color" class="form-label">Color</label>
+      <input type="text" class="form-control" id="color" name="color" [(ngModel)]="newCar.color" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="year" class="form-label">Year</label>
+      <select class="form-select" id="year" name="year" [(ngModel)]="newCar.year" required>
+        <option value="" disabled>Select Year</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image URL</label>
+      <input type="text" class="form-control" name="imageUrl" id="imageUrl" [(ngModel)]="newCar.imageUrl" required />
+    </div>
+
+    <div class="d-flex gap-2 mb-3">
+      <button type="submit" class="btn btn-success">Add Car</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelAdd()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="!addingCar" class="car-list-container">
+  <div class="car-header">
+    <h2>Your Cars</h2>
+    <a class="d-flex addbtn btn btn-primary iconsuse" (click)="onAddCar()">
+      <mat-icon>add</mat-icon> Add Car
+    </a>
+  </div>
+
+  <div *ngIf="userCars.length > 0; else noCars">
+    <div
+      class="car-card card p-4 shadow-lg"
+      *ngFor="let car of userCars"
+      [style.background-image]="'url(' + (car.imageUrl ? car.imageUrl : 'assets/iconcar.png') + ')'"
+      style="background-size: cover; background-position: center;"
+    >
+      <div class="car-card-header">
+        <div class="car-model">{{ car.model }}</div>
+        <div class="car-actions">
+          <mat-icon class="iconsuse" (click)="onEdit(car)">edit</mat-icon>
+          <mat-icon class="iconsuse" (click)="onDelete(car)">delete</mat-icon>
+        </div>
+      </div>
+
+      <div class="car-card-body">
+        <div class="blur-overlay">
+          <div class="car-details">
+            <p><strong>Brand:</strong> {{ car.brand }}</p>
+            <p><strong>Model:</strong> {{ car.model }}</p>
+            <p><strong>Car Number:</strong> {{ car.carNumber }}</p>
+            <p *ngIf="car.color"><strong>Color:</strong> {{ car.color }}</p>
+            <p *ngIf="car.year"><strong>Year:</strong> {{ car.year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noCars>
+    <p>No cars available.</p>
+  </ng-template>
+</div>
+
+<!-- Edit Car Modal -->
+<div *ngIf="editingCar" class="modal-overlay" (click)="cancelEdit()">
+  <div class="modal-dialog">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Edit Car</h3>
+        <button type="button" class="btn-close" (click)="cancelEdit()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <form (ngSubmit)="submitEdit()" #editForm="ngForm">
+          <div class="mb-3">
+            <label for="editBrand" class="form-label">Brand</label>
+            <input type="text" class="form-control" id="editBrand" name="editBrand" [(ngModel)]="editingCar.brand" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="editModel" class="form-label">Model</label>
+            <input type="text" class="form-control" id="editModel" name="editModel" [(ngModel)]="editingCar.model" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="editCarNumber" class="form-label">Car Number</label>
+            <input type="text" class="form-control" id="editCarNumber" name="editCarNumber" [(ngModel)]="editingCar.carNumber" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="editColor" class="form-label">Color</label>
+            <input type="text" class="form-control" id="editColor" name="editColor" [(ngModel)]="editingCar.color" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="editYear" class="form-label">Year</label>
+            <select class="form-select" id="editYear" name="editYear" [(ngModel)]="editingCar.year" required>
+              <option value="" disabled>Select Year</option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="editImageUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" name="editImageUrl" id="editImageUrl" [(ngModel)]="editingCar.imageUrl" required />
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Update Car</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noCars>
+  <p>No cars found for this user.</p>
+</ng-template>

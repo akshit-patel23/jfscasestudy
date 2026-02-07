@@ -1,0 +1,44 @@
+.bg-primary {
+  background-color: #059669 !important;
+}
+
+.btn-primary {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+.btn-primary:hover {
+  background-color: #047857;
+  border-color: #047857;
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #059669;
+  box-shadow: 0 0 0 0.2rem rgba(5, 150, 105, 0.25);
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.form-check-input:checked {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+.optiondrop{
+  border:none;
+}

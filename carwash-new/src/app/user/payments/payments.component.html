@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2>Payment History</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Payment ID</th>
+        <th>Amount (₹)</th>
+        <th>Razorpay Payment Link Id</th>
+        <th>Status</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{payment.id}}</td>
+        <td>{{payment.amount}}</td>
+        <td><a href={{payment.paymentLink}}>{{payment.razorpayPaymentLinkId}}</a></td>
+        <td>{{payment.status}}</td>
+        <td>{{payment.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

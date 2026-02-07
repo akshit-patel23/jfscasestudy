@@ -1,0 +1,88 @@
+<div class="container mt-4" *ngIf="orderData">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      
+      <!-- Order Header -->
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">Order Summary</h3>
+          <small>Order ID: #{{ orderData.orderId }}</small>
+        </div>
+      </div>
+
+      <!-- Order Details -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">Service Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="order-item">
+                <span class="label">Vehicle:</span>
+                <span class="value">{{ orderData.carNumber }}</span>
+              </div>
+              <div class="order-item">
+                <span class="label">Package:</span>
+                <span class="value">{{ orderData.packageName }}</span>
+              </div>
+              <div class="order-item" *ngIf="orderData.addOns?.length > 0">
+                <span class="label">Add-ons:</span>
+                <span class="value">{{ orderData.addOns.join(', ') }}</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="order-item" *ngIf="orderData.date">
+                <span class="label">Date:</span>
+                <span class="value">{{ orderData.date }}</span>
+              </div>
+              <div class="order-item" *ngIf="orderData.time">
+                <span class="label">Time:</span>
+                <span class="value">{{ orderData.time }}</span>
+              </div>
+              <div class="order-item">
+                <span class="label">Location:</span>
+                <span class="value">{{ orderData.location }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3" *ngIf="orderData.notes">
+            <div class="col-12">
+              <div class="order-item">
+                <span class="label">Special Instructions:</span>
+                <span class="value">{{ orderData.notes }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Summary -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">Payment Summary</h5>
+        </div>
+        <div class="card-body">
+          <div class="payment-row">
+            <span>Service Amount</span>
+            <span>₹{{ orderData.amount }}</span>
+          </div>
+          <hr>
+          <div class="payment-row total">
+            <span><strong>Total Amount</strong></span>
+            <span><strong>₹{{ orderData.amount }}</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg px-5" 
+                (click)="proceedToPay(orderData.orderId, orderData.amount, orderData.userMail)">
+          Proceed to Payment
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

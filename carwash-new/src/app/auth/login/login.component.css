@@ -1,0 +1,34 @@
+.login-container{
+  width: 100vw	!important;
+  height: 100vh;
+  margin: none;
+}
+.fillimg {
+  width: 60vw;
+  height: 100vh;
+  background-image: url('../../../assets/carwashman.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.forgotlink{
+  color: #A755F7;
+  text-decoration: none;
+}
+.signuplink{
+  color: #A755F7;
+  text-decoration: none;
+}
+
+.login-form{
+  width: 40vw;
+  height: 100vh;
+  background-color:rgba(245, 245, 245, 0.655);
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+.submitbtn{
+  background-color: #A755F7;
+  border: none;
+}

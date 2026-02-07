@@ -1,0 +1,38 @@
+<div class="container ">
+  <h2>User Orders</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Order ID</th>
+        <th>Car Number</th>
+        <th>Package</th>
+        <th>Add-Ons</th>
+        <th>Notes</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Amount (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.carNumber }}</td>
+        <td>{{ order.packageName }}</td>
+        <td>{{ order.addOns.join(', ') }}</td>
+        <td>{{ order.notes || '—' }}</td>
+        <td>{{ order.date }}</td>
+        <td>{{ order.time }}</td>
+        <td>{{ order.location }}</td>
+        <td>
+          <span [ngClass]="{
+            'text-success': order.status === 'COMPLETED',
+            'text-warning': order.status === 'PENDING'
+          }">{{ order.status }}</span>
+        </td>
+        <td>{{ order.amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

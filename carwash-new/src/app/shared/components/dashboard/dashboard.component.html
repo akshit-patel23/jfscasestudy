@@ -1,0 +1,14 @@
+
+<div class="dashboard">
+
+  <app-dashboardnav></app-dashboardnav>
+  <div class="d-flex main-content">
+    <app-menubar  [role]="role"></app-menubar>
+
+    <div class="content-area flex-grow-1 p-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+</div>

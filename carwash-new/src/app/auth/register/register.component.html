@@ -1,0 +1,51 @@
+<div class="container-fluid regcontainer">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+      <div class="card p-4 ">
+        <div class=" text-center">
+          <h2 class="card-title mb-4">Signup</h2>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="d-flex justify-content-between mb-3">
+              <input type="radio" class="btn-check " formControlName="role" value="USER" id="userbtn">
+              <label class="btn rolebtn w-50 me-2" for="userbtn">User</label>
+
+              <input type="radio" class="btn-check " formControlName="role" value="WASHER" id="washerbtn">
+              <label class="btn rolebtn w-50" for="washerbtn">Washer</label>
+            </div>
+
+            <div class="mb-3">
+              <label>Name</label>
+              <input type="text" class="form-control" formControlName="name" required />
+            </div>
+
+            <div class="mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" formControlName="email" required />
+            </div>
+
+            <div class="mb-3">
+              <label>Password</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" required />
+                <span class="input-group-text" (click)="togglePassword()" style="cursor: pointer;">
+                  <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </span>
+              </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary w-100 mb-3 signupbtn" >Sign Up</button>
+
+
+          </form>
+          <p class="text-center mb-3">Already have an account?
+            <a  class="loginlink" routerLink="/login" routerLinkActive="active" >Login</a>
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

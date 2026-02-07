@@ -1,0 +1,62 @@
+.landing-container {
+  background-image: url('../../../../assets/bg.jpg'); /* Place the uploaded image here */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.main-center {
+  text-align: center;
+
+  padding: 3rem;
+  border-radius: 1rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overlay{
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.269);
+}
+.mainText{
+  font-size: 4.5rem;
+}
+.buttons{
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  margin: 5%;
+  padding-inline:  6% ;
+  font-size: 1rem;
+  color: white;
+  border-radius: 30px;
+}
+.learnbtn{
+  border: 1px solid white;
+
+}
+.learnbtn:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+/* .overlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+button {
+  margin: 0 1rem;
+} */

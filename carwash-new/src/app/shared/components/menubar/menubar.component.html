@@ -1,0 +1,138 @@
+<div class="menubar">
+
+  <ul class="menu-list">
+    <ng-container *ngIf="role=='ADMIN'" >
+      <li class="menu-item">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>dashboard</mat-icon>
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['profile']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text">My Profile</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a [routerLink]="['manage-orders']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>list_alt</mat-icon>
+          <span class="menu-text">Orders</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['manage-users']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>account_box</mat-icon>
+          <span class="menu-text">Users</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>directions_walk</mat-icon>
+          <span class="menu-text">Washers</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>payment</mat-icon>
+          <span class="menu-text">Payments</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>card_giftcard</mat-icon>
+          <span class="menu-text">Packages</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>library_add</mat-icon>
+          <span class="menu-text">AddOns</span>
+        </a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="role=='USER'" >
+      <li class="menu-item">
+        <a [routerLink]="['/dashboard']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>dashboard</mat-icon>
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['profile']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text">My Profile</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['car']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>directions_car</mat-icon>
+          <span class ="menu-text">My Cars</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+      <a [routerLink]="['booking']" routerLinkActive="active" class="d-flex align-items-center menulink">
+        <mat-icon>local_car_wash</mat-icon>
+        <span class ="menu-text">Book a wash</span>
+      </a>
+      </li>
+
+        <li class="menu-item">
+          <a [routerLink]="['user-orders']" routerLinkActive="active" class="d-flex align-items-center menulink">
+            <mat-icon>list_alt</mat-icon>
+            <span class ="menu-text">My Orders</span>
+          </a>
+        </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['payment-history']" routerLinkActive="active" class="d-flex align-items-center menulink">
+        <mat-icon>payment</mat-icon>
+        <span class ="menu-text">Payment History</span>
+      </a>
+      </li>
+
+    </ng-container>
+
+    <ng-container *ngIf="role=='WASHER'">
+      <li class="menu-item">
+        <a [routerLink]="['']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>dashboard</mat-icon>
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['profile']" routerLinkActive="active" class="d-flex align-items-center menulink">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text">My Profile</span>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a [routerLink]="['washer-orders']" routerLinkActive="active" class="d-flex align-items-center menulink">
+        <mat-icon>list_alt</mat-icon>
+        <span class ="menu-text">My Orders</span>
+        </a>
+    </li>
+
+    <li class="menu-item">
+      <mat-icon>stars</mat-icon>
+      <span class ="menu-text">Rating & Reviews</span>
+  </li>
+
+
+
+
+    </ng-container>
+  </ul>
+</div>
+
