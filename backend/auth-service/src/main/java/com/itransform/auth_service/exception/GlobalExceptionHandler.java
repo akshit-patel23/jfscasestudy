@@ -1,6 +1,5 @@
 package com.itransform.auth_service.exception;
 
-import com.itransform.auth_service.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

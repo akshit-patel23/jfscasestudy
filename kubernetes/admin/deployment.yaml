@@ -14,11 +14,8 @@ spec:
         app: admin
     spec:
       containers:
-        - name: admin
-          image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/admin-service:1.0
+      - name: admin
+    image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/admin-service:latest
+    ports:
+      - containerPort: 8086
 
-          ports:
-            - containerPort: 8085
-          env:
-            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
-              value: http://discovery-server:8761/eureka

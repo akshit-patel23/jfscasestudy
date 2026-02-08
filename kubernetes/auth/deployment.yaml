@@ -14,11 +14,15 @@ spec:
         app: auth
     spec:
       containers:
-        - name: auth
-          image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/auth-service:1.0
+      - name: auth
+    image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/auth-service:latest
+    ports:
+      - containerPort: 8084
+    env:
+      - name: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://mysql:3306/itransform
+      - name: SPRING_DATASOURCE_USERNAME
+        value: root
+      - name: SPRING_DATASOURCE_PASSWORD
+        value: root
 
-          ports:
-            - containerPort: 8084
-          env:
-            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
-              value: http://discovery-server:8761/eureka

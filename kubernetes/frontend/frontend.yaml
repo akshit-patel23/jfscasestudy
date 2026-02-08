@@ -12,12 +12,12 @@ spec:
     metadata:
       labels:
         app: frontend
-    spec:
-      containers:
-        - name: frontend
-          image: asia-south1-docker.pkg.dev/PROJECT_ID/repo/frontend:latest
-          ports:
-            - containerPort: 80
+    containers:
+    - name: frontend
+    image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/frontend:latest
+    ports:
+      - containerPort: 80
+
 ---
 apiVersion: v1
 kind: Service

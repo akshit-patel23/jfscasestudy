@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: discovery
-          image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/discovery-server:1.0
+          image: asia-south1-docker.pkg.dev/akproject-486305/microservices-repo/discovery-server:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8761

@@ -1,4 +1,4 @@
-package com.itransform.auth_service.dto;
+package com.itransform.auth_service.exception;
 
 import java.util.Map;
 
